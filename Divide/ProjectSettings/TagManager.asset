@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - GameManager
+  - Gold
+  - DeathPlane
+  - CharacterSelectController
+  - UIManager
+  - Plane
+  - Camera
+  - Boundary
+  - ChangeDirection
+  - DirectionItem
+  - GameField
+  - LineRender
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Plane
+  - CharacterSelectionUI
+  - Boundary
+  - GameField
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 3846116047
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 3560899953
+    locked: 0
+  - name: Player
+    uniqueID: 1138537413
+    locked: 0
