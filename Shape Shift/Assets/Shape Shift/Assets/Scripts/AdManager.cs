@@ -21,10 +21,10 @@ public class AdManager : MonoBehaviour
     public static AdManager admanagerInstance = null;
 
     //These IDs have to be changed to the actual app and ad IDs!!!
-    [SerializeField] private string appID = "";
-    [SerializeField] private string bannerID = "ca-app-pub-3940256099942544/6300978111";
-    [SerializeField] private string interstitialID = "ca-app-pub-3940256099942544/1033173712";
-    [SerializeField] private string rewardVideoID = "ca-app-pub-3940256099942544/5224354917";
+    [SerializeField] private string appID = "ca-app-pub-6426865310370468~8531463963";
+    [SerializeField] private string bannerID = "ca-app-pub-6426865310370468/7128798676";
+    [SerializeField] private string interstitialID = "ca-app-pub-6426865310370468/1774483928";
+    [SerializeField] private string rewardVideoID = "ca-app-pub-6426865310370468/1533230711";
 
     void Awake()
     {

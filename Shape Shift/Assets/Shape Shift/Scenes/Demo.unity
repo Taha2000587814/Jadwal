@@ -9709,9 +9709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3afee2202f5a07846b3555c823d4fac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestAds: 1
+  TestAds: 0
   unityAds: 0
-  appID: 
+  appID: ca-app-pub-6426865310370468~8531463963
   bannerID: ca-app-pub-6426865310370468/7128798676
   interstitialID: 'ca-app-pub-6426865310370468/1774483928 '
   rewardVideoID: ca-app-pub-6426865310370468/1533230711
