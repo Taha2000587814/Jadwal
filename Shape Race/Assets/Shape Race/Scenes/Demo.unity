@@ -4687,7 +4687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e1ca12efedb8e44a2f980a8586ee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestAds: 1
+  TestAds: 0
   unityAds: 0
   appID: ca-app-pub-7179263837931033~8924980821
   bannerID: ca-app-pub-7179263837931033/4985735817

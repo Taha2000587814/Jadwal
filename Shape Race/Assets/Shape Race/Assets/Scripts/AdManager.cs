@@ -21,7 +21,7 @@ public class AdManager : MonoBehaviour
     public static AdManager admanagerInstance = null;
 
     //These IDs have to be changed to the actual app and ad IDs!!!
-    [SerializeField] private string appID = "";
+    [SerializeField] private string appID ;
     [SerializeField] private string bannerID = "ca-app-pub-3940256099942544/6300978111";
     [SerializeField] private string interstitialID = "ca-app-pub-3940256099942544/1033173712";
     [SerializeField] private string rewardVideoID = "ca-app-pub-3940256099942544/5224354917";
