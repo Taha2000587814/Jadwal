@@ -13,7 +13,7 @@ public class AdManager : MonoBehaviour
 
     private static BannerView bannerView;
     private InterstitialAd interstitialView;
-    RewardBasedVideoAd rewardBasedVideoAd;
+   /* RewardBasedVideoAd rewardBasedVideoAd;
 
 
     public static bool firstTime = true;
@@ -21,10 +21,10 @@ public class AdManager : MonoBehaviour
     public static AdManager admanagerInstance = null;
 
     //These IDs have to be changed to the actual app and ad IDs!!!
-    [SerializeField] private string appID = "ca-app-pub-6426865310370468~8531463963";
-    [SerializeField] private string bannerID = "ca-app-pub-6426865310370468/7128798676";
-    [SerializeField] private string interstitialID = "ca-app-pub-6426865310370468/1774483928";
-    [SerializeField] private string rewardVideoID = "ca-app-pub-6426865310370468/1533230711";
+    [SerializeField] public string appID = "ca-app-pub-6426865310370468~8531463963";
+    [SerializeField] public string bannerID = "ca-app-pub-6426865310370468/7128798676";
+    [SerializeField] public string interstitialID = "ca-app-pub-6426865310370468/1774483928";
+    [SerializeField] public string rewardVideoID = "ca-app-pub-6426865310370468/1533230711";
 
     void Awake()
     {
@@ -46,10 +46,13 @@ public class AdManager : MonoBehaviour
             RequestInterstitial();
             admanagerInstance.RequestBanner();
         }
+
     }
 
     void Start()
     {
+        MobileAds.Initialize(appID);
+
         // Called when an ad request has successfully loaded.
         bannerView.OnAdLoaded += HandleOnAdLoaded;
         // Called when an ad request failed to load.
@@ -83,6 +86,13 @@ public class AdManager : MonoBehaviour
 
         //request reward video
         admanagerInstance.RequestRewardBasedVideo();
+        RequestBanner();
+        ShowAdmobBanner();
+        RequestInterstitial();
+        RequestRewardBasedVideo();
+
+
+
     }
 
     #region AdmobBannerCallBackEvents

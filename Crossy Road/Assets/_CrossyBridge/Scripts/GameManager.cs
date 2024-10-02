@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private GameState _gameState = GameState.Prepare;
+    public GameState _gameState = GameState.Prepare;
 
     [Header("Check to enable premium features (require EasyMobile plugin)")]
     public bool enablePremiumFeatures = true;

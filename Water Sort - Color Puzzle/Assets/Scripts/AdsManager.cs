@@ -47,138 +47,138 @@ public partial class AdsManager : Singleton<AdsManager>
         set => PrefManager.SetBool(nameof(ConsentActive), value);
     }
 
-    private static bool IsAdmobRewardedAvailable
-    {
-        get
-        {
+  //  private static bool IsAdmobRewardedAvailable
+   // {
+       // get
+     //   {
 #if ADMOB
-            return _rewardBaseVideo != null && _rewardBaseVideo.IsLoaded();
+          //  return _rewardBaseVideo != null && _rewardBaseVideo.IsLoaded();
 #endif
             // ReSharper disable once HeuristicUnreachableCode
 #pragma warning disable 162
-            return false;
+          //  return false;
 #pragma warning restore 162
-        }
-    }
+      //  }
+   // }
 
-    private static bool IsAdmobInterstitialAvailable
-    {
-        get
-        {
+  //  private static bool IsAdmobInterstitialAvailable
+   // {
+      //  get
+     //   {
 #if ADMOB
-            return _interstitialAd.IsLoaded();
+           // return _interstitialAd.IsLoaded();
 #endif
 #pragma warning disable 162
-            return false;
+           // return false;
 #pragma warning restore 162
-        }
-    }
+      //  }
+ //   }
 
 
 #if ADMOB
-    private static RewardBasedVideoAd _rewardBaseVideo;
-    private static InterstitialAd _interstitialAd;
-    private static BannerView _bannerAd;
+   // private static RewardBasedVideoAd _rewardBaseVideo;
+   // private static InterstitialAd _interstitialAd;
+   // private static BannerView _bannerAd;
 
 #endif
 
-    void Start()
-    {
-        if (HaveSetupConsent)
-            Init();
-    }
+  //  void Start()
+  //  {
+      //  if (HaveSetupConsent)
+          //  Init();
+  //  }
 
 
-    public void Init()
-    {
-        if (Initialized)
-            return;
+  //  public void Init()
+  //  {
+     //   if (Initialized)
+        //    return;
 
 
 #if ADMOB
-        _rewardBaseVideo = RewardBasedVideoAd.Instance;
-        _rewardBaseVideo.OnAdRewarded += RewardBaseVideoOnOnAdRewarded;
-        _rewardBaseVideo.OnAdFailedToLoad += (sender, args) =>
-        {
+      //  _rewardBaseVideo = RewardBasedVideoAd.Instance;
+     //   _rewardBaseVideo.OnAdRewarded += RewardBaseVideoOnOnAdRewarded;
+     //   _rewardBaseVideo.OnAdFailedToLoad += (sender, args) =>
+      //  {
             //            PlatformUtils.ShowToast($"Video Ads Loaded Failed:{args.Message}");
-            Invoke(nameof(RequestAdmobRewardVideo), 6f);
-        };
-        _rewardBaseVideo.OnAdClosed += (sender, args) =>
-        {
+       //     Invoke(nameof(RequestAdmobRewardVideo), 6f);
+      //  };
+     //   _rewardBaseVideo.OnAdClosed += (sender, args) =>
+     //   {
             //            PlatformUtils.ShowToast($"Video Ads Loaded Failed:{args.Message}");
-            Invoke(nameof(RequestAdmobRewardVideo), 5f);
-        };
+       //     Invoke(nameof(RequestAdmobRewardVideo), 5f);
+    //    };
         //        _rewardBaseVideo.OnAdLoaded += (sender, args) => { PlatformUtils.ShowToast($"Video Ads Loaded"); };
-        RequestAdmobRewardVideo();
-        RequestAdmobInterstitial();
-        if (ResourceManager.EnableAds)
-        {
-            RequestAdmobBanner();
-        }
+    //    RequestAdmobRewardVideo();
+    //    RequestAdmobInterstitial();
+     //   if (ResourceManager.EnableAds)
+     //   {
+      //      RequestAdmobBanner();
+   //     }
 #endif
 
 
-        Initialized = true;
-    }
+      //  Initialized = true;
+ //   }
 
 
 #if ADMOB
     // ReSharper disable once TooManyDeclarations
-    private void RequestAdmobRewardVideo()
-    {
-        var request = new AdRequest.Builder()
-            .AddTestDevice(AdRequest.TestDeviceSimulator)
-            .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
-            .Build();
-        _rewardBaseVideo.LoadAd(request, AdmobRewardedID);
-    }
+   // private void RequestAdmobRewardVideo()
+  //  {
+     //   var request = new AdRequest.Builder()
+       //     .AddTestDevice(AdRequest.TestDeviceSimulator)
+       //     .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
+       //     .Build();
+       // _rewardBaseVideo.LoadAd(request, AdmobRewardedID);
+   // }
 
 
-    private void RequestAdmobInterstitial()
-    {
-        _interstitialAd = new InterstitialAd(AdmobInterstitialID);
-        _interstitialAd.OnAdClosed += InterstitialAdOnOnAdClosed;
-        _interstitialAd.OnAdFailedToLoad += (sender, args) =>
-        {
-            Instance.Invoke(nameof(RequestAdmobInterstitial), 10);
-        };
+  //  private void RequestAdmobInterstitial()
+  //  {
+    //    _interstitialAd = new InterstitialAd(AdmobInterstitialID);
+    //    _interstitialAd.OnAdClosed += InterstitialAdOnOnAdClosed;
+    //    _interstitialAd.OnAdFailedToLoad += (sender, args) =>
+     //   {
+     //       Instance.Invoke(nameof(RequestAdmobInterstitial), 10);
+    //    };
 
-        var request = new AdRequest.Builder()
-            .AddTestDevice(AdRequest.TestDeviceSimulator)
-            .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
-            .Build();
-        _interstitialAd.LoadAd(request);
-    }
-
-
-    private void RequestAdmobBanner()
-    {
-        _bannerAd = new BannerView(AdmobBannerID, AdSize.Banner, AdPosition.Bottom);
-        var request = new AdRequest.Builder()
-            .AddTestDevice(AdRequest.TestDeviceSimulator)
-            .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
-            .Build();
-        _bannerAd.LoadAd(request);
-
-    }
-
-    private static void InterstitialAdOnOnAdClosed(object sender, EventArgs eventArgs)
-    {
-        Instance.RequestAdmobInterstitial();
-    }
+     //   var request = new AdRequest.Builder()
+     //       .AddTestDevice(AdRequest.TestDeviceSimulator)
+      //      .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
+      //      .Build();
+       // _interstitialAd.LoadAd(request);
+  //  }
 
 
-    private void RewardBaseVideoOnOnAdRewarded(object sender, Reward reward)
-    {
-        _pendingCallback?.Invoke(true);
-        _pendingCallback = null;
-    }
+ //   private void RequestAdmobBanner()
+   // {
+    //    _bannerAd = new BannerView(AdmobBannerID, AdSize.Banner, AdPosition.Bottom);
+     //   var request = new AdRequest.Builder()
+     //       .AddTestDevice(AdRequest.TestDeviceSimulator)
+      //      .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
+      //      .Build();
+      //  _bannerAd.LoadAd(request);
+
+  //  }
+
+  //  private static void InterstitialAdOnOnAdClosed(object sender, EventArgs eventArgs)
+  //  {
+   //     Instance.RequestAdmobInterstitial();
+   // }
+
+
+   // private void RewardBaseVideoOnOnAdRewarded(object sender, Reward reward)
+   // {
+   //     _pendingCallback?.Invoke(true);
+   //     _pendingCallback = null;
+   // }
 #endif
 
 
 #if UNITY_ADS
     // ReSharper disable once FlagArgument
-    private static void ShowUnityVideoAds(bool rewarded, Action<bool> completed = null)
+   private static void ShowUnityVideoAds(bool rewarded, Action<bool> completed = null)
     {
         if (rewarded && !IsUnityRewardedAdsAvailable || !rewarded && !IsUnityDefaultAdsAvailable)
         {
@@ -254,62 +254,63 @@ public partial class AdsManager : Singleton<AdsManager>
 public partial class AdsManager
 {
     public static void ShowInterstitial()
-    {
+    { }
+
         //        PlatformUtils.ShowToast(nameof(ShowInterstitial)+IsAdmobInterstitialAvailable);
-        if (IsAdmobInterstitialAvailable)
-        {
+      //  if (IsAdmobInterstitialAvailable)
+       // {
 #if ADMOB
-            _interstitialAd.Show();
+         //   _interstitialAd.Show();
 #endif
-        }
-    }
+       // }
+   // }
 
 
     //    // ReSharper disable once FlagArgument
     //    // ReSharper disable once MethodTooLong
-    public static void ShowVideoAds(bool rewarded, Action<bool> completed = null)
-    {
-        if (!rewarded)
-        {
-            if (IsUnityDefaultAdsAvailable)
-            {
+   // public static void ShowVideoAds(bool rewarded, Action<bool> completed = null)
+  //  {
+     //   if (!rewarded)
+     //   {
+        //    if (IsUnityDefaultAdsAvailable)
+        //    {
 #if UNITY_ADS
-                ShowUnityVideoAds(false, completed);
+             //   ShowUnityVideoAds(false, completed);
 #endif
-            }
-            else
-            {
-                completed?.Invoke(false);
-            }
-        }
-        else
-        {
-            if (IsAdmobRewardedAvailable && Application.platform != RuntimePlatform.WindowsEditor)
-            {
-                Instance._pendingCallback = completed;
+          //  }
+         //   else
+         //   {
+            //    completed?.Invoke(false);
+          //  }
+      //  }
+      //  else
+       // {
+        //    if (IsAdmobRewardedAvailable && Application.platform != RuntimePlatform.WindowsEditor)
+         //   {
+             //   Instance._pendingCallback = completed;
 #if ADMOB
-                _rewardBaseVideo.Show();
+              //  _rewardBaseVideo.Show();
 
 #endif
-            }
-            else if (IsUnityRewardedAdsAvailable)
-            {
+        //    }
+         //   else if (IsUnityRewardedAdsAvailable)
+         //   {
                 #if UNITY_ADS
-                ShowUnityVideoAds(true, completed);
+             //   ShowUnityVideoAds(true, completed);
 #endif
-            }
-            else
-            {
-                completed?.Invoke(false);
-            }
-        }
-    }
+          //  }
+          // // else
+          //  {
+              //  completed?.Invoke(false);
+          //  }
+       // }
+  //  }
 
 
-    public static bool IsVideoAvailable(bool rewarded = true)
-    {
-        return IsAdmobRewardedAvailable || IsUnityRewardedAdsAvailable;
-    }
+ //   public static bool IsVideoAvailable(bool rewarded = true)
+  //  {
+      //  return IsAdmobRewardedAvailable || IsUnityRewardedAdsAvailable;
+   // }
 
     public static bool IsUnityDefaultAdsAvailable
     {
@@ -341,13 +342,13 @@ public partial class AdsManager
     }
 
 
-    public static bool IsInterstitialAvailable()
-    {
-        var available = //Application.internetReachability != NetworkReachability.NotReachable ||
-            IsAdmobInterstitialAvailable; //|| IsUnityAdsAvailable(VideoType.Skip);
+  //  public static bool IsInterstitialAvailable()
+  //  {
+       // var available = //Application.internetReachability != NetworkReachability.NotReachable ||
+          //  IsAdmobInterstitialAvailable; //|| IsUnityAdsAvailable(VideoType.Skip);
 
-        return available;
-    }
+     //   return available;
+   // }
 }
 
 

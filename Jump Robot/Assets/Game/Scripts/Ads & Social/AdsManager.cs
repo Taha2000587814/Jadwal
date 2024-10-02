@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
-//using GoogleMobileAds;     //...........................................Uncomment this line after importing google admob sdk
-//using GoogleMobileAds.Api; //...........................................Uncomment this line after importing google admob sdk
+using GoogleMobileAds;     //...........................................Uncomment this line after importing google admob sdk
+using GoogleMobileAds.Api;
+using System.Collections;//...........................................Uncomment this line after importing google admob sdk
 
 /// <summary>
 /// Script that handle your banner , noraml and reward ads
@@ -26,20 +27,20 @@ public class AdsManager : MonoBehaviour
 
     public bool isTesting = true;
 
-    //[Header("For Banner")]
-    //public string Android_Banner_ID = "";
-    //public string IOS_Banner_ID = "";
-    //[Header("For Interstitial")]
-    //public string Android_Interstitial_ID = "";
-    //public string IOS_Interstitial_ID = "";
+    [Header("For Banner")]
+    public string Android_Banner_ID = "";
+    public string IOS_Banner_ID = "";
+    [Header("For Interstitial")]
+    public string Android_Interstitial_ID = "";
+    public string IOS_Interstitial_ID = "";
 
     [Header("Dont Know ID try \"Device ID Finder for AdMob\" App")]
     public string Device_ID = "";
 
         //...........................................Uncomment this line after importing google admob sdk
 
-    //private BannerView bannerView;
-    //private InterstitialAd interstitial;
+    private BannerView bannerView;
+    private InterstitialAd interstitial;
     private float deltaTime = 0.0f;
     private static string outputMessage = "";
 
@@ -70,8 +71,8 @@ public class AdsManager : MonoBehaviour
     void Start()
     {
         //here we request for all the ads we need
-        //RequestBanner();
-        //RequestInterstitial();
+        RequestBanner();
+        RequestInterstitial();
     }
 
     void Update()
@@ -83,65 +84,60 @@ public class AdsManager : MonoBehaviour
 
     //.............................................................Methods used to request for ads
     //we use this methode to get the banner ads
-    /*
+    
     private void RequestBanner()
     {
 #if UNITY_EDITOR
         string adUnitId = "unused";
-#elif UNITY_ANDROID
-            string adUnitId = vars.adMobBannerID;
-#elif UNITY_IOS
-            string adUnitId = vars.adMobBannerID;
-#else
-            string adUnitId = "unexpected_platform";
 #endif
 
-            if (vars.bannerAdPoisiton == 0)
+
+        if (vars.bannerAdPoisiton == 0)
             {
                 // Create a 320x50 banner at the top of the screen.
-                bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+               // bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
             }
             else if (vars.bannerAdPoisiton == 1)
             {
                 // Create a 320x50 banner at the top of the screen.
-                bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.BottomLeft);
+              //  bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.BottomLeft);
             }
             else if (vars.bannerAdPoisiton == 2)
             {
                 // Create a 320x50 banner at the top of the screen.
-                bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.BottomRight);
+              //  bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.BottomRight);
             }
             else if (vars.bannerAdPoisiton == 3)
             {
                 // Create a 320x50 banner at the top of the screen.
-                bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Top);
+               // bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Top);
             }
             else if (vars.bannerAdPoisiton == 4)
             {
                 // Create a 320x50 banner at the top of the screen.
-                bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.TopLeft);
+               // bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.TopLeft);
             }
             else if (vars.bannerAdPoisiton == 5)
             {
                 // Create a 320x50 banner at the top of the screen.
-                bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.TopRight);
+                //bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.TopRight);
             }
         // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
+        //AdRequest request = new AdRequest.Builder().Build();
                 
         // Register for ad events.
-        bannerView.OnAdLoaded += HandleAdLoaded;
-        bannerView.OnAdFailedToLoad += HandleAdFailedToLoad;
+        //bannerView.OnAdLoaded += HandleAdLoaded;
+        //bannerView.OnAdFailedToLoad += HandleAdFailedToLoad;
 
         // Load a banner ad.
         //replace createAdRequest with request when the games is submitting to store
         if (isTesting)
         {
-            bannerView.LoadAd(createAdRequest());
+            //bannerView.LoadAd(createAdRequest());
         }
         else
         {
-            bannerView.LoadAd(request);
+            //bannerView.LoadAd(request);
         }
     }
 
@@ -150,45 +146,41 @@ public class AdsManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         string adUnitId = "unused";
-#elif UNITY_ANDROID
-            string adUnitId = vars.adMobInterstitialID;
-#elif UNITY_IOS
-            string adUnitId = vars.adMobInterstitialID;
-#else
-            string adUnitId = "unexpected_platform";
 #endif
 
+
+
         // Create an interstitial.
-        interstitial = new InterstitialAd(adUnitId);
+        //interstitial = new InterstitialAd(adUnitId);
         // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
+        //AdRequest request = new AdRequest.Builder().Build();
 
         // Register for ad events.
-        interstitial.OnAdLoaded += HandleInterstitialLoaded;
-        interstitial.OnAdFailedToLoad += HandleInterstitialFailedToLoad;
+        //interstitial.OnAdLoaded += HandleInterstitialLoaded;
+        //interstitial.OnAdFailedToLoad += HandleInterstitialFailedToLoad;
 
         // Load an interstitial ad.
         //replace createAdRequest with request when the games is submitting to store
         if (isTesting)
         {
-            interstitial.LoadAd(createAdRequest());
+            //interstitial.LoadAd(createAdRequest());
         }
         else
         {
-            interstitial.LoadAd(request);
+            //nterstitial.LoadAd(request);
         }
     }
 
     // the following method is used when we are testing the ads
-    private AdRequest createAdRequest()
-    {
-        return new AdRequest.Builder()
-                .AddTestDevice(AdRequest.TestDeviceSimulator)
+    //private AdRequest createAdRequest()
+    //{
+        //return new AdRequest.Builder()
+                //.AddTestDevice(AdRequest.TestDeviceSimulator)
                 //add you device ID below if ubable to find ID try "Device ID Finder for AdMob" app
                 //link:- https://play.google.com/store/apps/details?id=pe.go_com.admobdeviceidfinder&hl=en
-                .AddTestDevice(Device_ID)
-                .Build();
-    }
+                //.AddTestDevice(Device_ID)
+                //.Build();
+    //}
 
     //.............................................................Methods used to show for ads
     //use this methode to show ads
@@ -197,17 +189,8 @@ public class AdsManager : MonoBehaviour
 
 #if UNITY_EDITOR
         Debug.Log("Interstitial Working");
-#elif UNITY_ANDROID || UNITY_IOS
-        if (interstitial.IsLoaded())
-        {
-            interstitial.Show();
-        }
-        else
-        {
-
-            RequestInterstitial();
-        }
 #endif
+
 
     }
 
@@ -246,7 +229,12 @@ public class AdsManager : MonoBehaviour
 
     public void HandleInterstitialFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        print("HandleInterstitialFailedToLoad event received with message: " + args.Message);
+        //print("HandleInterstitialFailedToLoad event received with message: " + args.Message);
+    }
+
+    private void print(object p)
+    {
+        throw new NotImplementedException();
     }
 
     public void HandleInterstitialOpened(object sender, EventArgs args)
@@ -282,7 +270,7 @@ public class AdsManager : MonoBehaviour
 
     public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        print("HandleAdFailedToLoad event received with message: " + args.Message);
+        //print("HandleAdFailedToLoad event received with message: " + args.Message);
     }
 
     public void HandleAdOpened(object sender, EventArgs args)
@@ -305,10 +293,5 @@ public class AdsManager : MonoBehaviour
         print("HandleAdLeftApplication event received");
     }
 
-#endregion
-    //................................................................end of Banner callback handlers
-
-    */
-
-    //...........................................Uncomment this line after importing google admob sdk
+    #endregion
 }

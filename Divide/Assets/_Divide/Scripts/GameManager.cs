@@ -20,7 +20,7 @@ namespace Divide
 
         public static event System.Action<GameState, GameState> GameStateChanged;
 
-        private static bool isRestart;
+        public bool isRestart;
 
         public GameState GameState
         {

@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameAdsManager gameAdsManager;
     public static LevelManager Instance { get; private set; }
     public static event Action LevelCompleted;
 
@@ -41,10 +42,23 @@ public class LevelManager : MonoBehaviour
         CurrentState = State.Playing;
     }
 
+
+    public void Start()
+    {
+        gameAdsManager.CreateBannerView();
+        gameAdsManager.LoadAd();
+        gameAdsManager.LoadInterstitialAd();
+        gameAdsManager.LoadRewardedAd();
+    }
+
     private void LoadLevel()
     {
         var list = PositionsForHolders(Level.map.Count, out var width).ToList();
         _camera.orthographicSize = 0.5f * width * Screen.height / Screen.width;
+        gameAdsManager.CreateBannerView();
+        gameAdsManager.LoadAd();
+        gameAdsManager.LoadInterstitialAd();
+        gameAdsManager.LoadRewardedAd();
 
         var levelMap = Level.LiquidDataMap;
         for (var i = 0; i < levelMap.Count; i++)

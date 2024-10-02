@@ -76,11 +76,11 @@ namespace Avoidance
 		/// </summary>
         public BGMManager bgmManager;
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Avoidance.GameStateController"/> has reached game over state.
-		/// </summary>
-		/// <value><c>true</c> if is game over; otherwise, <c>false</c>.</value>
-		public bool isGameOver { get; private set;}
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Avoidance.GameStateController"/> has reached game over state.
+        /// </summary>
+        /// <value><c>true</c> if is game over; otherwise, <c>false</c>.</value>
+        public bool isGameOver; //{ get; private set;}
 
 		private Startable[] _startables;
         private Startable _playerInput;

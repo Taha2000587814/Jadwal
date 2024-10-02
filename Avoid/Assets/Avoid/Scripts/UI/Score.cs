@@ -16,7 +16,7 @@ namespace Avoidance
 
 		private static readonly string HIGHSCORE_KEY = "highscore";
 
-		private int _currentScore;
+		public int _currentScore;
 
 		/// <summary>
 		/// Gets the current score.

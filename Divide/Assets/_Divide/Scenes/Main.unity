@@ -8155,6 +8155,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 562303587}
+        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
+        m_MethodName: ShowInterstitialAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &478281504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8657,6 +8669,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8a7f71523a9dc468037f3a38a74a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 1328416105}
+  gameManager: {fileID: 2085452387}
+  BanneradUnitId: ca-app-pub-6426865310370468/8447703483
+  IntadUnitId: ca-app-pub-6426865310370468/5101401135
+  RewardedadUnitId: ca-app-pub-6426865310370468/9746800644
 --- !u!4 &562303588
 Transform:
   m_ObjectHideFlags: 0
@@ -13007,6 +13024,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d56693cb785e45769ed6bc8160f338c, type: 3}
+--- !u!114 &1328416105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11444632, guid: 7d56693cb785e45769ed6bc8160f338c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1328416104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5129cfdd0761d4a079a7fe123e672417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1332262376
 GameObject:
   m_ObjectHideFlags: 0
@@ -13872,7 +13901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1390072572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13941,21 +13970,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 218131795}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ButtonClickSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 218131795}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: WatchAdForCoins
+      - m_Target: {fileID: 562303587}
+        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
+        m_MethodName: ShowRewardedAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21161,6 +21178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db41cfb3e07db6a41b74dca8bf271fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRestart: 0
   targetFrameRate: 60
   playerController: {fileID: 344953820}
   boundary: {fileID: 983186052}

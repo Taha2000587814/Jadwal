@@ -17,11 +17,11 @@ namespace Divide
         public static event Action<int> CoinsUpdated = delegate {};
 
         [SerializeField]
-        int initialCoins = 0;
+        public int initialCoins = 0;
 
         // Show the current coins value in editor for easy testing
         [SerializeField]
-        int _coins;
+        public int _coins;
 
         // key name to store high score in PlayerPrefs
         const string PPK_COINS = "SGLIB_COINS";
@@ -38,6 +38,7 @@ namespace Divide
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
             }
+   
         }
 
         void Start()

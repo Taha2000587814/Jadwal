@@ -4,9 +4,12 @@ using UnityEngine;
 using GoogleMobileAds.Api;
 using GoogleMobileAds;
 using System;
+using Divide;
 
 public class AdsManager : MonoBehaviour
 {
+    public CoinManager coinManager;
+    public GameManager gameManager; 
     public void Start()
     {
         // Initialize the Google Mobile Ads SDK.
@@ -14,12 +17,17 @@ public class AdsManager : MonoBehaviour
         {
             Debug.Log("Ads Init Done"); // This callback is called once the MobileAds SDK is initialized.
         });
+        CreateBannerView();
+        LoadAd();
+        LoadRewardedAd();
+        LoadInterstitialAd();
+
     }
 
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-    private string BanneradUnitId = "ca-app-pub-6426865310370468/7945124695";
+    public string BanneradUnitId = "ca-app-pub-6426865310370468/7945124695";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/2934735716";
 #else
@@ -128,7 +136,7 @@ public class AdsManager : MonoBehaviour
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-    private string IntadUnitId = "ca-app-pub-6426865310370468/4982267046";
+    public string IntadUnitId = "ca-app-pub-6426865310370468/4982267046";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
@@ -182,7 +190,11 @@ public class AdsManager : MonoBehaviour
         if (_interstitialAd != null && _interstitialAd.CanShowAd())
         {
             Debug.Log("Showing interstitial ad.");
-            _interstitialAd.Show();
+            if (gameManager.isRestart)
+            {
+                _interstitialAd.Show();
+            }
+            
         }
         else
         {
@@ -251,7 +263,7 @@ public class AdsManager : MonoBehaviour
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-    private string RewardedadUnitId = "ca-app-pub-6426865310370468/4877617345";
+    public string RewardedadUnitId = "ca-app-pub-6426865310370468/4877617345";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
@@ -307,6 +319,14 @@ public class AdsManager : MonoBehaviour
             _rewardedAd.Show((Reward reward) =>
             {
                 // TODO: Reward the user.
+                if (CoinManager.Instance != null)
+                {
+                    coinManager._coins += 20; 
+                }
+                else
+                {
+                    Debug.LogError("CoinManager instance is not set.");
+                }
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
             });
         }

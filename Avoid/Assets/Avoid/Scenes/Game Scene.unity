@@ -2262,6 +2262,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b173048a92ed744b149fb910b77b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1104948160}
+  gameStateController: {fileID: 2076883196}
+  BanneradUnitId: ca-app-pub-6426865310370468/7670890001
+  IntadUnitId: ca-app-pub-6426865310370468/7926040871
+  RewardedadUnitId: ca-app-pub-6426865310370468/4095018715
 --- !u!4 &962412861
 Transform:
   m_ObjectHideFlags: 0
@@ -2451,6 +2456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 684995818}
+  _currentScore: 0
 --- !u!4 &1104948161
 Transform:
   m_ObjectHideFlags: 0
@@ -4653,6 +4659,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 962412860}
+        m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
+        m_MethodName: ShowInterstitialAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1796231483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5371,6 +5389,7 @@ MonoBehaviour:
   gameOverScoreText: {fileID: 824282504}
   gameOverHighscoreText: {fileID: 1642660161}
   bgmManager: {fileID: 1618254636}
+  isGameOver: 0
 --- !u!4 &2076883197
 Transform:
   m_ObjectHideFlags: 0

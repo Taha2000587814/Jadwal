@@ -7,6 +7,22 @@ using System;
 
 public class GameAdsManager : MonoBehaviour
 {
+    private static GameAdsManager instance; 
+    void Awake()
+    {
+        // Check if an instance already exists
+        if (instance == null)
+        {
+            // If not, set this instance and make it persistent
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // If an instance already exists, destroy this one
+            Destroy(gameObject);
+        }
+    }
     public void Start()
     {
         // Initialize the Google Mobile Ads SDK.
@@ -14,12 +30,17 @@ public class GameAdsManager : MonoBehaviour
         {
             Debug.Log("Ads Init Done"); // This callback is called once the MobileAds SDK is initialized.
         });
+
+        CreateBannerView();
+        LoadAd();
+        LoadInterstitialAd();
+        LoadRewardedAd(); 
     }
 
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-    private string BanneradUnitId = "ca-app-pub-6426865310370468/7945124695";
+    public string BanneradUnitId = "ca-app-pub-6426865310370468/7945124695";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/2934735716";
 #else
@@ -128,7 +149,7 @@ public class GameAdsManager : MonoBehaviour
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-    private string IntadUnitId = "ca-app-pub-6426865310370468/4982267046";
+    public string IntadUnitId = "ca-app-pub-6426865310370468/4982267046";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
@@ -251,7 +272,7 @@ public class GameAdsManager : MonoBehaviour
 
     // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-    private string RewardedadUnitId = "ca-app-pub-6426865310370468/4877617345";
+    public string RewardedadUnitId = "ca-app-pub-6426865310370468/4877617345";
 #elif UNITY_IPHONE
   private string _adUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
