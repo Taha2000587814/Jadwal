@@ -1322,7 +1322,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 60e0b244d0245174e85b67288ed89ee7, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8119,7 +8118,7 @@ MonoBehaviour:
   TestAds: 0
   unityAds: 0
   appID: ca-app-pub-6426865310370468~5933220780
-  bannerID: 'ca-app-pub-6426865310370468/1802404087 '
+  bannerID: ca-app-pub-6426865310370468/1802404087
   interstitialID: ca-app-pub-6426865310370468/7984669059
   rewardVideoID: ca-app-pub-6426865310370468/6929065615
 --- !u!4 &1721040495
