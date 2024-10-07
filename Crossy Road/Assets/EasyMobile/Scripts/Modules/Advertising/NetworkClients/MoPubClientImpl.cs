@@ -262,7 +262,7 @@ namespace EasyMobile
 
         #region AdClient Overrides
 
-        public override AdNetwork Network { get { return AdNetwork.MoPub; } }
+        public override AdNetwork Network => AdNetwork.MoPub;
 
         public override bool IsBannerAdSupported { get { return true; } }
 

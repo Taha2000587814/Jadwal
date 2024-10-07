@@ -14,10 +14,10 @@ namespace EasyMobile
         Chartboost,
         FairBid,
         IronSource,
-        MoPub,
         TapJoy,
         UnityAds,
         Vungle,
+        MoPub,
     }
 
     public enum BannerAdNetwork
@@ -29,7 +29,6 @@ namespace EasyMobile
         AudienceNetwork = AdNetwork.AudienceNetwork,
         FairBid = AdNetwork.FairBid,
         IronSource = AdNetwork.IronSource,
-        MoPub = AdNetwork.MoPub,
         UnityAds = AdNetwork.UnityAds,
         Vungle = AdNetwork.Vungle,
     }
@@ -44,7 +43,6 @@ namespace EasyMobile
         Chartboost = AdNetwork.Chartboost,
         FairBid = AdNetwork.FairBid,
         IronSource = AdNetwork.IronSource,
-        MoPub = AdNetwork.MoPub,
         TapJoy = AdNetwork.TapJoy,
         UnityAds = AdNetwork.UnityAds,
         Vungle = AdNetwork.Vungle,
@@ -60,7 +58,6 @@ namespace EasyMobile
         Chartboost = AdNetwork.Chartboost,
         FairBid = AdNetwork.FairBid,
         IronSource = AdNetwork.IronSource,
-        MoPub = AdNetwork.MoPub,
         TapJoy = AdNetwork.TapJoy,
         UnityAds = AdNetwork.UnityAds,
         Vungle = AdNetwork.Vungle,
