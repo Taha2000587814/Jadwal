@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameAdsManager gameAdsManager;
+    public AdManager gameAdsManager;
     public static LevelManager Instance { get; private set; }
     public static event Action LevelCompleted;
 
@@ -45,8 +45,8 @@ public class LevelManager : MonoBehaviour
 
     public void Start()
     {
-        gameAdsManager.CreateBannerView();
-        gameAdsManager.LoadAd();
+        gameAdsManager.LoadBannerAd();
+        gameAdsManager.ShowBannerAd();
         gameAdsManager.LoadInterstitialAd();
         gameAdsManager.LoadRewardedAd();
     }
@@ -55,8 +55,8 @@ public class LevelManager : MonoBehaviour
     {
         var list = PositionsForHolders(Level.map.Count, out var width).ToList();
         _camera.orthographicSize = 0.5f * width * Screen.height / Screen.width;
-        gameAdsManager.CreateBannerView();
-        gameAdsManager.LoadAd();
+        gameAdsManager.LoadBannerAd();
+        gameAdsManager.ShowBannerAd();
         gameAdsManager.LoadInterstitialAd();
         gameAdsManager.LoadRewardedAd();
 
@@ -83,6 +83,7 @@ public class LevelManager : MonoBehaviour
     {
         if (CurrentState != State.Playing)
             return;
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -167,6 +168,8 @@ public class LevelManager : MonoBehaviour
     {
         if (CurrentState != State.Playing)
             return;
+        gameAdsManager.LoadInterstitialAd();
+        gameAdsManager.ShowInterstitialAd();
 
         PlayClipIfCan(_winClip);
         CurrentState = State.Over;

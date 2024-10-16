@@ -19,10 +19,13 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public bool gameIsOver = false;
 
+    public AdsManager adManager;
+
 	void Start () {
         StartPanelActivation();
         HighScoreCheck();
         AudioCheck();
+        adManager.LoadInterstitialAd();
 	}
 
     public void Initialize()
@@ -38,6 +41,8 @@ public class GameManager : MonoBehaviour {
         startPanel.SetActive(true);
         endPanel.SetActive(false);
         pausedPanel.SetActive(false);
+        adManager.LoadInterstitialAd();
+        adManager.LoadBannerAd();
     }
 
     public void EndPanelActivation()
@@ -55,6 +60,7 @@ public class GameManager : MonoBehaviour {
         endScoreText.text = scoreText.text;
         pauseButton.SetActive(false);
         HighScoreCheck();
+        adManager.ShowInterstitialAd();
     }
 
     public void PausedPanelActivation()
@@ -98,6 +104,7 @@ public class GameManager : MonoBehaviour {
         FindObjectOfType<AudioManager>().ButtonClickSound();
         FindObjectOfType<Spawner>().Spawn();
         FindObjectOfType<PlayerScale>().enabled = true;
+        adManager.ShowBannerAd();
     }
 
     public void RestartButton()
@@ -146,7 +153,7 @@ public class GameManager : MonoBehaviour {
         //if (FindObjectOfType<AdManager>().unityAds)
         //    FindObjectOfType<AdManager>().ShowUnityRewardVideoAd();       //Shows Unity Reward Video ad
         //else
-        FindObjectOfType<AdManager>().ShowAdmobRewardVideo();       //Shows Admob Reward Video ad
+       // FindObjectOfType<AdManager>().ShowAdmobRewardVideo();       //Shows Admob Reward Video ad
 
         FindObjectOfType<PlayerScale>().enabled = true;
         endPanel.SetActive(false);

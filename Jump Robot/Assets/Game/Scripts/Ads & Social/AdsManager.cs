@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
-using GoogleMobileAds;     //...........................................Uncomment this line after importing google admob sdk
-using GoogleMobileAds.Api;
+//using GoogleMobileAds;     //...........................................Uncomment this line after importing google admob sdk
+//using GoogleMobileAds.Api;
 using System.Collections;//...........................................Uncomment this line after importing google admob sdk
 
 /// <summary>
@@ -39,8 +39,8 @@ public class AdsManager : MonoBehaviour
 
         //...........................................Uncomment this line after importing google admob sdk
 
-    private BannerView bannerView;
-    private InterstitialAd interstitial;
+   // private BannerView bannerView;
+  //  private InterstitialAd interstitial;
     private float deltaTime = 0.0f;
     private static string outputMessage = "";
 
@@ -197,19 +197,19 @@ public class AdsManager : MonoBehaviour
     //this methode is used to call the banner ads
     public void ShowBannerAds()
     {
-        bannerView.Show();
+      //  bannerView.Show();
     }
 
     //this methode is used to hide banner ads
     public void HideBannerAds()
     {
-        bannerView.Hide();
+      //  bannerView.Hide();
     }
 
     //this methode is used to destroy banner ads
     public void DestroyBannerAds()
     {
-        bannerView.Destroy();
+      //  bannerView.Destroy();
     }
 
     //.............................................................Methods used to show for ads
@@ -227,10 +227,10 @@ public class AdsManager : MonoBehaviour
         print("HandleInterstitialLoaded event received.");
     }
 
-    public void HandleInterstitialFailedToLoad(object sender, AdFailedToLoadEventArgs args)
-    {
+   // public void HandleInterstitialFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+ //   {
         //print("HandleInterstitialFailedToLoad event received with message: " + args.Message);
-    }
+  //  }
 
     private void print(object p)
     {
@@ -268,10 +268,10 @@ public class AdsManager : MonoBehaviour
         print("HandleAdLoaded event received.");
     }
 
-    public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
-    {
+  //  public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+  //  {
         //print("HandleAdFailedToLoad event received with message: " + args.Message);
-    }
+  //  }
 
     public void HandleAdOpened(object sender, EventArgs args)
     {

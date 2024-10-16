@@ -242,7 +242,7 @@ PlayerSettings:
   clonedFromGUID: 5f34be1353de5cf4398729fda238591b
   templatePackageId: com.unity.template.2d@3.2.0
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 1
+  useCustomMainManifest: 0
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 1
   useCustomLauncherGradleManifest: 0
@@ -779,6 +779,7 @@ PlayerSettings:
     ErrorHub: 0
     Hub: 0
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -793,11 +794,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 9f1bcc25-0fc4-4aae-9aca-9064b5a0b0f0
+  cloudProjectId: 56fb919c-1778-4327-ba54-c6693279b49e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Water Puzzle
-  organizationId: kenhaui
+  projectName: Water Sort
+  organizationId: jdwal
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 

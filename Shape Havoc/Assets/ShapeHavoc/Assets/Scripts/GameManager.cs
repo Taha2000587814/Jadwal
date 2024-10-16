@@ -15,32 +15,36 @@ public class GameManager : MonoBehaviour {
 
     public GameObject startPanel, endPanel, muteImage, scoreText;
     public TextMeshProUGUI highScoreText, endScoreText, endHighScoreText;
+    public AdManager adManager;
 
 	void Start () {
         //UNCOMMENT THE FOLLOWING LINES IF YOU ENABLED UNITY ADS AT UNITY SERVICES AND REOPENED THE PROJECT!
         //if (FindObjectOfType<AdManager>().unityAds)
-        //    CallUnityAds();     //Calls Unity Ads
+        CallUnityAds();     //Calls Unity Ads
         //else
-        CallAdmobAds();     //Calls Admob Ads
+        //CallAdmobAds();     //Calls Admob Ads
 
         StartPanelActivation();
         HighScoreCheck();
         AudioCheck();
-	}
+        adManager.LoadInterstitialAd();
+        adManager.LoadRewardedAd();
+    }
 
     //UNCOMMENT THE FOLLOWING LINES IF YOU ENABLED UNITY ADS AT UNITY SERVICES AND REOPENED THE PROJECT!
-    //public void CallUnityAds()
-    //{
-    //    if (Time.time != Time.timeSinceLevelLoad)
-    //        FindObjectOfType<AdManager>().ShowUnityVideoAd();      //Shows Interstitial Ad when game starts (except for the first time)
+    public void CallUnityAds()
+    {
+        if (Time.time != Time.timeSinceLevelLoad)
+            adManager.ShowInterstitialAd();      //Shows Interstitial Ad when game starts (except for the first time)
     //    FindObjectOfType<AdManager>().HideAdmobBanner();
-    //}
+   }
+   
 
     public void CallAdmobAds()
     {
-        FindObjectOfType<AdManager>().ShowAdmobBanner();        //Shows Banner Ad when game starts
-        if (Time.time != Time.timeSinceLevelLoad)
-            FindObjectOfType<AdManager>().ShowAdmobInterstitial();      //Shows Interstitial Ad when game starts (except for the first time)
+       // FindObjectOfType<AdManager>().ShowAdmobBanner();        //Shows Banner Ad when game starts
+      //  if (Time.time != Time.timeSinceLevelLoad)
+         //   FindObjectOfType<AdManager>().ShowAdmobInterstitial();      //Shows Interstitial Ad when game starts (except for the first time)
     }
 
     public void Initialize()
@@ -53,6 +57,8 @@ public class GameManager : MonoBehaviour {
     {
         startPanel.SetActive(true);
         endPanel.SetActive(false);
+        adManager.LoadBannerAd();
+        adManager.ShowBannerAd();
     }
 
     public void EndPanelActivation()
@@ -62,6 +68,8 @@ public class GameManager : MonoBehaviour {
         scoreText.SetActive(false);
         endScoreText.text = scoreText.GetComponent<TextMeshProUGUI>().text;
         HighScoreCheck();
+        adManager.ShowInterstitialAd();
+        
     }
 
     public void SkinsPanelActivation()

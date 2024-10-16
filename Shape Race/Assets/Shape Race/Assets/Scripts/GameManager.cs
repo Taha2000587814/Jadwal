@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     public GameObject startPanel, endPanel, muteImage;
     public TextMeshProUGUI scoreText, highScoreText, endScoreText, endHighScoreText;
     [HideInInspector] public bool gameIsOver = false;
-
+    public AdManager adManager;
 	void Start () {
         //UNCOMMENT THE FOLLOWING LINES IF YOU ENABLED UNITY ADS AT UNITY SERVICES AND REOPENED THE PROJECT!
         //if (FindObjectOfType<AdManager>().unityAds)
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
         Initialize();
         HighScoreCheck();
         AudioCheck();
+        adManager.LoadInterstitialAd();
 	}
 
     //UNCOMMENT THE FOLLOWING LINES IF YOU ENABLED UNITY ADS AT UNITY SERVICES AND REOPENED THE PROJECT!
@@ -39,9 +40,10 @@ public class GameManager : MonoBehaviour {
 
     public void CallAdmobAds()
     {
-        FindObjectOfType<AdManager>().ShowAdmobBanner();        //Shows Banner Ad when game starts
+        //  FindObjectOfType<AdManager>().ShowAdmobBanner();        //Shows Banner Ad when game starts
         if (Time.time != Time.timeSinceLevelLoad)
-            FindObjectOfType<AdManager>().ShowAdmobInterstitial();      //Shows Interstitial Ad when game starts (except for the first time)
+            adManager.ShowInterstitialAd(); // FindObjectOfType<AdManager>().ShowAdmobInterstitial();      //Shows Interstitial Ad when game starts (except for the first time)
+        adManager.LoadInterstitialAd();   
     }
 
     public void Initialize()

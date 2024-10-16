@@ -252,8 +252,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: SharpRace.keystore'
-  AndroidKeyaliasName: sharprace
+  AndroidKeystoreName: '{inproject}: DevKeystore.keystore'
+  AndroidKeyaliasName: devkeystore
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
@@ -804,6 +804,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     UNet: 1
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -818,11 +819,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 7e6ae99b-4adb-4cfd-aac5-f231abee8730
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Shape Race
+  organizationId: jdwal
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 

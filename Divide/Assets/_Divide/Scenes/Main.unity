@@ -8426,6 +8426,15 @@ PrefabInstance:
       propertyPath: bannerAdPosition
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11441840, guid: 44eeec2a2c5eb480bbe9050961e27d63, type: 3}
+      propertyPath: disableSharing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114424061108346466, guid: 44eeec2a2c5eb480bbe9050961e27d63,
+        type: 3}
+      propertyPath: enablePremiumFeatures
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44eeec2a2c5eb480bbe9050961e27d63, type: 3}
 --- !u!1001 &503182907
@@ -8669,11 +8678,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8a7f71523a9dc468037f3a38a74a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinManager: {fileID: 1328416105}
-  gameManager: {fileID: 2085452387}
-  BanneradUnitId: ca-app-pub-6426865310370468/8447703483
-  IntadUnitId: ca-app-pub-6426865310370468/5101401135
-  RewardedadUnitId: ca-app-pub-6426865310370468/9746800644
+  androidGameId: 5713310
+  iosGameId: 
+  gameId: 5713310
+  interstitialAdUnitId: Interstitial_Android
+  bannerAdUnitId: Banner_Android
+  rewardedAdUnitId: Rewarded_Android
 --- !u!4 &562303588
 Transform:
   m_ObjectHideFlags: 0
@@ -13024,18 +13034,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d56693cb785e45769ed6bc8160f338c, type: 3}
---- !u!114 &1328416105 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11444632, guid: 7d56693cb785e45769ed6bc8160f338c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1328416104}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5129cfdd0761d4a079a7fe123e672417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1332262376
 GameObject:
   m_ObjectHideFlags: 0
@@ -21178,6 +21176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db41cfb3e07db6a41b74dca8bf271fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adsManager: {fileID: 562303587}
   isRestart: 0
   targetFrameRate: 60
   playerController: {fileID: 344953820}

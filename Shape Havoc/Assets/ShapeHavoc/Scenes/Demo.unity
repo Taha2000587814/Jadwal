@@ -6872,6 +6872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1061515961}
   textAnim: {fileID: 1523068727}
+  adManager: {fileID: 1721040494}
   score: 0
 --- !u!4 &917847715
 Transform:
@@ -8020,6 +8021,7 @@ MonoBehaviour:
   highScoreText: {fileID: 1148055394}
   endScoreText: {fileID: 1727363031}
   endHighScoreText: {fileID: 1246132891}
+  adManager: {fileID: 1721040494}
 --- !u!1 &1523068724
 GameObject:
   m_ObjectHideFlags: 0
@@ -8115,12 +8117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bd4470d71907d4481b09668a6a2b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestAds: 0
-  unityAds: 0
-  appID: ca-app-pub-6426865310370468~5933220780
-  bannerID: ca-app-pub-6426865310370468/1802404087
-  interstitialID: ca-app-pub-6426865310370468/7984669059
-  rewardVideoID: ca-app-pub-6426865310370468/6929065615
+  androidGameId: 5713307
+  iosGameId: 5713306
+  testMode: 0
+  gameId: 5713307
+  interstitialAdUnitId: Interstitial_Android
+  bannerAdUnitId: Banner_Android
+  rewardedAdUnitId: Rewarded_Android
 --- !u!4 &1721040495
 Transform:
   m_ObjectHideFlags: 0

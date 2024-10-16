@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Divide
 {
+    
     public enum GameState
     {
         Prepare,
@@ -16,6 +17,8 @@ namespace Divide
 
     public class GameManager : MonoBehaviour
     {
+
+        public AdsManager adsManager; 
         public static GameManager Instance { get; private set; }
 
         public static event System.Action<GameState, GameState> GameStateChanged;
@@ -109,6 +112,8 @@ namespace Divide
             originalSizePlayerPar = main.startSize.constant;
 
             PrepareGame();
+            adsManager.LoadInterstitialAd();
+            adsManager.LoadRewardedAd();
         }
 
 
@@ -152,6 +157,8 @@ namespace Divide
             StartCoroutine(CR_HideObject());
             GameState = GameState.GameOver;
             GameCount++;
+            adsManager.LoadInterstitialAd();
+            adsManager.ShowInterstitialAd();
 
             // Add other game over actions here if necessary
         }

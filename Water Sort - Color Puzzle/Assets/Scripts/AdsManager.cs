@@ -1,13 +1,11 @@
 ﻿using System;
 using Game;
-#if ADMOB
-using GoogleMobileAds.Api;
-#endif
+
 using UnityEngine;
-#if UNITY_ADS
+
 using UnityEngine.Advertisements;
 
-#endif
+
 
 // ReSharper disable once HollowTypeName
 public partial class AdsManager : Singleton<AdsManager>

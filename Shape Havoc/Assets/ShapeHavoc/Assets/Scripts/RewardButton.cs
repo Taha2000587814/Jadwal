@@ -5,6 +5,7 @@ using TMPro;
 
 public class RewardButton : MonoBehaviour
 {
+    public AdManager adManager; 
     public int rewardCount = 5;
 
     void Start()
@@ -19,10 +20,12 @@ public class RewardButton : MonoBehaviour
 
     public void ShowRewardVideo()
     {
+
+        adManager.ShowRewardedAd();
         //UNCOMMENT THE FOLLOWING LINES IF YOU ENABLED UNITY ADS AT UNITY SERVICES AND REOPENED THE PROJECT!
         //if (FindObjectOfType<AdManager>().unityAds)
-        //    FindObjectOfType<AdManager>().ShowUnityRewardVideoAd();       //Shows Unity Reward Video ad
+       // FindObjectOfType<AdManager>().ShowUnityRewardVideoAd();       //Shows Unity Reward Video ad
         //else
-        FindObjectOfType<AdManager>().ShowAdmobRewardVideo();       //Shows Admob Reward Video ad
+      // FindObjectOfType<AdManager>().ShowAdmobRewardVideo();       //Shows Admob Reward Video ad
     }
 }

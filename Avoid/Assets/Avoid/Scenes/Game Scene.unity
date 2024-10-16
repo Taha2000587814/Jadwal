@@ -2264,9 +2264,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 1104948160}
   gameStateController: {fileID: 2076883196}
-  BanneradUnitId: ca-app-pub-6426865310370468/7670890001
-  IntadUnitId: ca-app-pub-6426865310370468/7926040871
-  RewardedadUnitId: ca-app-pub-6426865310370468/4095018715
+  androidGameId: 5713312
+  iosGameId: 5713313
+  testMode: 0
+  gameId: 5713312
+  interstitialAdUnitId: Interstitial_Android
+  bannerAdUnitId: Banner_Android
+  rewardedAdUnitId: Rewarded_Android
 --- !u!4 &962412861
 Transform:
   m_ObjectHideFlags: 0

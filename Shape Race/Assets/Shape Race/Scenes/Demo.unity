@@ -4643,6 +4643,7 @@ MonoBehaviour:
   endScoreText: {fileID: 1727363031}
   endHighScoreText: {fileID: 1246132891}
   gameIsOver: 0
+  adManager: {fileID: 1506705793}
 --- !u!1 &1506705791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,12 +4688,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e1ca12efedb8e44a2f980a8586ee1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestAds: 0
-  unityAds: 0
-  appID: ca-app-pub-7179263837931033~8924980821
-  bannerID: ca-app-pub-7179263837931033/4985735817
-  interstitialID: ca-app-pub-7179263837931033/1182222173
-  rewardVideoID: ca-app-pub-7179263837931033/2303732159
+  androidGameId: 5713304
+  iosGameId: 
+  gameId: 5713304
+  interstitialAdUnitId: Interstitial_Android
+  bannerAdUnitId: Banner_Android
+  rewardedAdUnitId: Rewarded_Android
 --- !u!1 &1523068724
 GameObject:
   m_ObjectHideFlags: 0
@@ -5949,6 +5950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RewardButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1175781005940578983, guid: 967e4694f2297f7468dfe04ef628ea29,
+        type: 3}
+      propertyPath: adManager
+      value: 
+      objectReference: {fileID: 1506705793}
     - target: {fileID: 1175781005989442752, guid: 967e4694f2297f7468dfe04ef628ea29,
         type: 3}
       propertyPath: m_textInfo.lineCount

@@ -2030,6 +2030,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RewardButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1175781005940578983, guid: 1d43069e8eddc544c8448031e5af7b4f,
+        type: 3}
+      propertyPath: adManager
+      value: 
+      objectReference: {fileID: 693096943}
     - target: {fileID: 1175781005989442752, guid: 1d43069e8eddc544c8448031e5af7b4f,
         type: 3}
       propertyPath: m_textInfo.lineCount
@@ -2371,7 +2376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 693096942}
-  - component: {fileID: 693096941}
+  - component: {fileID: 693096943}
   m_Layer: 0
   m_Name: AdmobManager
   m_TagString: Untagged
@@ -2379,18 +2384,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &693096941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693096940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab20f7794b5a65c4397578819bcd89ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &693096942
 Transform:
   m_ObjectHideFlags: 0
@@ -2406,6 +2399,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &693096943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693096940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7705fe83014e0e941af964d7203455c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  androidGameId: 5713303
+  iosGameId: 
+  gameId: 5713303
+  interstitialAdUnitId: Interstitial_Android
+  bannerAdUnitId: Banner_Android
+  rewardedAdUnitId: Rewarded_Android
 --- !u!1 &694894077
 GameObject:
   m_ObjectHideFlags: 0
@@ -9861,6 +9872,7 @@ MonoBehaviour:
   endScoreText: {fileID: 1727363031}
   endHighScoreText: {fileID: 1246132891}
   gameIsOver: 0
+  adManager: {fileID: 693096943}
 --- !u!1 &1488362827
 GameObject:
   m_ObjectHideFlags: 0

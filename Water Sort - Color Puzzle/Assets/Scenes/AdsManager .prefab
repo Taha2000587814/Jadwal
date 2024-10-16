@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fbecc5ce07aa44fbff2ed80eb0b885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BanneradUnitId: ca-app-pub-6426865310370468/3578520188
-  IntadUnitId: ca-app-pub-6426865310370468/7372341257
-  RewardedadUnitId: ca-app-pub-6426865310370468/7755024139
+  androidGameId: 5713299
+  iosGameId: 
+  testMode: 0
+  gameId: 5713299
+  interstitialAdUnitId: Interstitial_Android
+  bannerAdUnitId: Banner_Android
+  rewardedAdUnitId: Rewarded_Android

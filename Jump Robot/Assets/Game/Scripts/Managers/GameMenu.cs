@@ -12,6 +12,8 @@ public class GameMenu : MonoBehaviour {
     public UIObjects UIO; //ref to the UIObject
     private AudioSource sfxSound; //ref to audiosource component
 
+    public AdmobManager admobManager;
+
     [HideInInspector]
     public ManageVariables vars;
 
@@ -52,6 +54,7 @@ public class GameMenu : MonoBehaviour {
         if (GameManager.instance.startGame == true)
         {   //set the score text to current score value
             scoreText.text = "" + GameManager.instance.currentScore;
+            //admobManager.LoadInterstitialAd();
             //chekc if best score is defeated
             if (GameManager.instance.currentScore > GameManager.instance.bestScore)
             {   //if yes we update the best score and save it
@@ -62,6 +65,7 @@ public class GameMenu : MonoBehaviour {
         //check if game is over
         if (GameManager.instance.gameOver == true)
             StartCoroutine(GameOver());//perform the specific code
+        
 
         //check if game is not started and its a restart
         if (GameManager.instance.startGame == false && GameManager.instance.gameRestarted == true)
@@ -87,6 +91,8 @@ public class GameMenu : MonoBehaviour {
         GameManager.instance.scoreEffect = 0;      //reset the scoreeffect value to zero
         string sceneName = SceneManager.GetActiveScene().name; //get the scene name
         SceneManager.LoadScene(sceneName); //and loads it
+        admobManager.ShowInterstitialAd();
+
     }
 
     /// <summary>

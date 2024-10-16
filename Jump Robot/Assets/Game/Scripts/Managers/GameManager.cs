@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+    public AdmobManager admobManager;
     public static GameManager instance;
 
     private GameData data;
@@ -73,6 +73,9 @@ public class GameManager : MonoBehaviour
             isGameStartedFirstTime = false;
             isMusicOn = true;
             bestScore = lastScore = 0;
+            admobManager.LoadBannerAd();
+            admobManager.LoadInterstitialAd();
+            admobManager.LoadRewardedAd();
 
             achievements = new bool[5];//if you want ot add more achievements change the value here
             for (int i = 0; i < achievements.Length; i++)
