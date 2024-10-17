@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 {
     public static event System.Action<GameState, GameState> GameStateChanged = delegate { };
 
+    public AdsManager adsManager;
     public GameState GameState
     {
         get
@@ -201,6 +202,8 @@ public class GameManager : MonoBehaviour
 
         if (playerController.isRunning && !gameOver) //Not game over
         {
+            //adsManager.LoadInterstitialAd();
+
             if (Input.GetMouseButtonDown(0))
             {
                 if (listIndex < listMovingPlane.Count) //Make sure the the listIndex not run out of the list
@@ -296,12 +299,16 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         GameState = GameState.Playing;
+        adsManager.LoadInterstitialAd();
+        adsManager.LoadBannerAd();
     }
 
     public void GameOver()
     {
         gameOver = true;
         GameState = GameState.GameOver;
+        adsManager.ShowInterstitialAd();
+        adsManager.ShowBannerAd();
 
         SoundManager.Instance.StopMusic();
     }
