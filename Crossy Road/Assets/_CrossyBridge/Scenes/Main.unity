@@ -10655,7 +10655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c7833711fa328408663b47fde71fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enablePremiumFeatures: 1
+  enablePremiumFeatures: 0
 --- !u!1 &1171849332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 171586, guid: 89c6368175b09fd49ade2e7ec37ecc45,
@@ -10897,7 +10897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adsManager: {fileID: 180209983}
-  enablePremiumFeatures: 1
+  enablePremiumFeatures: 0
   initialPlanes: 5
   totalPlaneOnScene: 15
   minPlaneNumber: 8
