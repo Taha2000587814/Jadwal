@@ -10605,7 +10605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0350242eae7d436cbc1dbc271373b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disable: 1
+  disable: 0
   achievements: []
 --- !u!114 &1161427533
 MonoBehaviour:
