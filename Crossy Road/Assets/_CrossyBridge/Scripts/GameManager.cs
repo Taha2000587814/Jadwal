@@ -202,8 +202,6 @@ public class GameManager : MonoBehaviour
 
         if (playerController.isRunning && !gameOver) //Not game over
         {
-            //adsManager.LoadInterstitialAd();
-
             if (Input.GetMouseButtonDown(0))
             {
                 if (listIndex < listMovingPlane.Count) //Make sure the the listIndex not run out of the list
@@ -300,7 +298,6 @@ public class GameManager : MonoBehaviour
     {
         GameState = GameState.Playing;
         adsManager.LoadInterstitialAd();
-        adsManager.LoadBannerAd();
     }
 
     public void GameOver()
@@ -308,7 +305,7 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         GameState = GameState.GameOver;
         adsManager.ShowInterstitialAd();
-        adsManager.ShowBannerAd();
+        adsManager.LoadBannerAd();
 
         SoundManager.Instance.StopMusic();
     }
@@ -316,6 +313,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame(float delay)
     {
         StartCoroutine(CRRestart(delay));
+        adsManager.ShowBannerAd();
     }
 
     IEnumerator CRRestart(float delay = 0)

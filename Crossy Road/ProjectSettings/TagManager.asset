@@ -9,11 +9,12 @@ TagManager:
   - Gold
   - MovingPlane
   - ScoreDetector
+  - CharacterSelectController
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GUI
   - Water
   - UI
   - 
